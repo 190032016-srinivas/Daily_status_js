@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <p>first</p>
+  <script>
+    alert( 'Hello, world!' );
+  </script>
+  <p>second</p>
+</body>
+</html>
