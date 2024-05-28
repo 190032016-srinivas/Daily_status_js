@@ -1,0 +1,9 @@
+let name = "srinu";
+alert( `hello ${1}` ); 
+alert( `hello ${"name"}` ); 
+alert( `hello ${name}` );
+
+expected output-
+hello 1
+hello name
+hello srinu
