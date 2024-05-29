@@ -1,0 +1,8 @@
+basic alert :
+alert("Hello");
+
+prompt message:
+It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
+let age = prompt('How old are you?', 50);
+alert(`You are ${age} years old!`);
+
