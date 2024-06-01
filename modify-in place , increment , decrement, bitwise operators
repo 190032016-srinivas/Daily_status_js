@@ -1,0 +1,24 @@
+modify in place
+let n = 2;
+n += 5; // now n = 7 (same as n = n + 5)
+n *= 2; // now n = 14 (same as n = n * 2)
+alert( n ); // 14
+let n = 2;
+n *= 3 + 5; // right part evaluated first, same as n *= 8
+alert( n ); // 16
+incre/decrement
+n=n+1 // n++
+n=n-1 // n--
+Bitwise operators treat arguments as 32-bit integer numbers and work on the level of their binary representation.
+These operators are not JavaScript-specific. They are supported in most programming languages.
+The list of operators:
+AND ( & )
+OR ( | )
+XOR ( ^ )
+NOT ( ~ )
+LEFT SHIFT ( << )
+RIGHT SHIFT ( >> )
+ZERO-FILL RIGHT SHIFT ( >>> )
+COMMA-OPERATOR
+let a = (1 + 2, 3 + 4);
+alert( a ); // 7 (the result of 3 + 4)
