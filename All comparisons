@@ -1,0 +1,19 @@
+All comparison operators return a boolean value
+
+string comparisons:
+To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order.
+In other words, strings are compared letter-by-letter.
+alert( 'Z' > 'A' ); // true
+alert( 'Glow' > 'Glee' ); // true
+alert( 'Bee' > 'Be' ); // true
+
+When comparing values of different types, JavaScript converts the values to numbers.
+For boolean values, true becomes 1 and false becomes 0.
+
+strict equality:
+alert( 0 == false ); // true
+alert( 0 === false ); // false, because the types are different
+
+null and undefined:
+alert( null === undefined ); // false
+alert( null == undefined ); // true
