@@ -1,0 +1,16 @@
+logical-or
+There are four possible logical combinations:
+alert( true || true );   // true
+alert( false || true );  // true
+alert( true || false );  // true
+alert( false || false ); // false
+
+logical and
+In classical programming, AND returns true if both operands are truthy and false otherwise:
+alert( true && true );   // true
+alert( false && true );  // false
+alert( true && false );  // false
+alert( false && false ); // false
+
+The boolean NOT operator is represented with an exclamation sign !.
+That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
