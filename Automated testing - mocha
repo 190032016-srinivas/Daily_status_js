@@ -1,0 +1,67 @@
+The development flow
+The flow of development usually looks like this:
+
+An initial spec is written, with tests for the most basic functionality.
+An initial implementation is created.
+To check whether it works, we run the testing framework Mocha (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.
+Now we have a working initial implementation with tests.
+We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
+Go to 3, update the implementation till tests give no errors.
+Repeat steps 3-6 till the functionality is ready.
+So, the development is iterative. We write the spec, implement it, make sure tests pass, then write more tests, make sure they work etc. At the end we have both a working implementation and tests for it.
+
+The spec in action
+
+Mocha – the core framework: it provides common testing functions including describe and it and the main function that runs tests.
+Chai – the library with many assertions. It allows to use a lot of different assertions, for now we need only assert.equal.
+Sinon – a library to spy over functions, emulate built-in functions and more, we’ll need it much later.
+These libraries are suitable for both in-browser and server-side testing. Here we’ll consider the browser variant.
+
+The full HTML page with these frameworks and pow spec:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- add mocha css, to show results -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+  <!-- add mocha framework code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+  <script>
+    mocha.setup('bdd'); // minimal setup
+  </script>
+  <!-- add chai -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+  <script>
+    // chai has a lot of stuff, let's make assert global
+    let assert = chai.assert;
+  </script>
+</head>
+
+<body>
+
+  <script>
+    function pow(x, n) {
+      /* function code is to be written, empty now */
+    }
+  </script>
+
+  <!-- the script with tests (describe, it...) -->
+  <script src="test.js"></script>
+
+  <!-- the element with id="mocha" will contain test results -->
+  <div id="mocha"></div>
+
+  <!-- run tests! -->
+  <script>
+    mocha.run();
+  </script>
+</body>
+
+</html>
+The page can be divided into five parts:
+
+The <head> – add third-party libraries and styles for tests.
+The <script> with the function to test, in our case – with the code for pow.
+The tests – in our case an external script test.js that has describe("pow", ...) from above.
+The HTML element <div id="mocha"> will be used by Mocha to output results.
+The tests are started by the command mocha.run().
