@@ -1,0 +1,77 @@
+An object can be created with figure brackets {…} with an optional list of properties.
+A property is a “key: value” pair, where key is a string (also called a “property name”), and value can be anything.
+
+let user = {     // an object
+  name: "John",  // by key "name" store value "John"
+  age: 30        // by key "age" store value 30
+};
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let key = prompt("What do you want to know about the user?", "name");
+
+// access by variable
+alert( user[key] ); // John (if enter "name")
+
+"key" in object
+For instance:
+
+let user = { name: "John", age: 30 };
+
+alert( "age" in user ); // true, user.age exists
+alert( "blabla" in user ); // false, user.blabla doesn't exist
+
+let user = { age: 30 };
+
+let key = "age";
+alert( key in user ); // true, property "age" exists
+
+let obj = {
+  test: undefined
+};
+
+alert( obj.test ); // it's undefined, so - no such property?
+
+alert( "test" in obj ); // true, the property does exist!
+
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // keys
+  alert( key );  // name, age, isAdmin
+  // values for the keys
+  alert( user[key] ); // John, 30, true
+}
+
+
+Summary
+Objects are associative arrays with several special features.
+
+They store properties (key-value pairs), where:
+
+Property keys must be strings or symbols (usually strings).
+Values can be of any type.
+To access a property, we can use:
+
+The dot notation: obj.property.
+Square brackets notation obj["property"]. Square brackets allow taking the key from a variable, like obj[varWithKey].
+Additional operators:
+
+To delete a property: delete obj.prop.
+To check if a property with the given key exists: "key" in obj.
+To iterate over an object: for (let key in obj) loop.
+What we’ve studied in this chapter is called a “plain object”, or just Object.
+
+There are many other kinds of objects in JavaScript:
+
+Array to store ordered data collections,
+Date to store the information about the date and time,
+Error to store the information about an error.
+…And so on.
