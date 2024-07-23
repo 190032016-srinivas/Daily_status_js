@@ -1,0 +1,46 @@
+In modern JavaScript, there are two types of numbers:
+
+Regular numbers in JavaScript are stored in 64-bit format IEEE-754, also known as “double precision floating point numbers”. These are numbers that we’re using most of the time, and we’ll talk about them in this chapter.
+
+BigInt numbers represent integers of arbitrary length. They are sometimes needed because a regular integer number can’t safely exceed (253-1) or be less than -(253-1), as we mentioned earlier in the chapter Data types. As bigints are used in a few special areas, we devote them to a special chapter BigInt.
+
+let billion = 1e9;  // 1 billion, literally: 1 and 9 zeroes
+
+alert( 7.3e9 );  // 7.3 billions (same as 7300000000 or 7_300_000_000)
+In other words, e multiplies the number by 1 with the given zeroes count.
+
+1e3 === 1 * 1000; // e3 means *1000
+1.23e6 === 1.23 * 1000000; // e6 means *1000000
+let mсs = 0.000001;
+Just like before, using "e" can help. If we’d like to avoid writing the zeroes explicitly, we could write the same as:
+
+let mcs = 1e-6; // five zeroes to the left from 1
+If we count the zeroes in 0.000001, there are 6 of them. So naturally it’s 1e-6.
+
+In other words, a negative number after "e" means a division by 1 with the given number of zeroes:
+
+// -3 divides by 1 with 3 zeroes
+1e-3 === 1 / 1000; // 0.001
+
+// -6 divides by 1 with 6 zeroes
+1.23e-6 === 1.23 / 1000000; // 0.00000123
+
+// an example with a bigger number
+1234e-2 === 1234 / 100; // 12.34, decimal point moves 2 times
+Please note that two dots in 123456..toString(36) is not a typo. If we want to call a method directly on a number, like toString in the example above, then we need to place two dots .. after it.
+
+If we placed a single dot: 123456.toString(36), then there would be an error, because JavaScript syntax implies the decimal part after the first dot. And if we place one more dot, then JavaScript knows that the decimal part is empty and now goes the method.
+
+Also could write (123456).toString(36).
+One of the most used operations when working with numbers is rounding.
+
+There are several built-in functions for rounding:
+
+Math.floor
+Rounds down: 3.1 becomes 3, and -1.1 becomes -2.
+Math.ceil
+Rounds up: 3.1 becomes 4, and -1.1 becomes -1.
+Math.round
+Rounds to the nearest integer: 3.1 becomes 3, 3.6 becomes 4. In the middle cases 3.5 rounds up to 4, and -3.5 rounds up to -3.
+Math.trunc (not supported by Internet Explorer)
+Removes anything after the decimal point without rounding: 3.1 becomes 3, -1.1 becomes -1.
